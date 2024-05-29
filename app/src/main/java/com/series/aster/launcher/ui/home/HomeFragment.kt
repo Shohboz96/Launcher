@@ -14,6 +14,7 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.series.aster.launcher.R
 import com.series.aster.launcher.accessibility.MyAccessibilityService
@@ -135,7 +136,7 @@ class HomeFragment() : Fragment(), OnItemClickedListener.OnAppsClickedListener,
         binding.appListAdapter.apply {
             adapter = homeAdapter
             setHasFixedSize(false)
-            layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
+            layoutManager = GridLayoutManager(requireContext(),4,)
             //itemAnimator = false
             isNestedScrollingEnabled = false
         }

@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.coroutineScope
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.series.aster.launcher.R
 import com.series.aster.launcher.data.entities.AppInfo
@@ -83,7 +84,7 @@ class DrawFragment : Fragment(), OnItemClickedListener.OnAppsClickedListener,
     private fun setupRecyclerView() {
         binding.drawAdapter.apply {
             adapter = drawAdapter
-            layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
+            layoutManager = GridLayoutManager(requireContext(), 4)
             setHasFixedSize(false)
         }
     }

@@ -20,6 +20,7 @@ class DrawViewHolder(private val binding: ItemDrawBinding,
     fun bind(appInfo: AppInfo) {
         binding.apply {
             appDrawName.text = appInfo.appName
+            imageApp.setImageDrawable(itemView.context.packageManager.getApplicationIcon(appInfo.packageName))
             Log.d("Tag", "Draw Adapter: ${appInfo.appName + appInfo.id}")
         }
 

@@ -23,21 +23,22 @@ class HomeViewHolder @Inject constructor(
     fun bind(appInfo: AppInfo) {
 
         binding.apply {
-            val layoutParams = LinearLayoutCompat.LayoutParams(
-                LinearLayoutCompat.LayoutParams.WRAP_CONTENT,
-                LinearLayoutCompat.LayoutParams.WRAP_CONTENT
-            ).apply {
-                gravity = preferenceHelper.homeAppAlignment
-            }
+//            val layoutParams = LinearLayoutCompat.LayoutParams(
+//                LinearLayoutCompat.LayoutParams.WRAP_CONTENT,
+//                LinearLayoutCompat.LayoutParams.WRAP_CONTENT
+//            ).apply {
+//                gravity = preferenceHelper.homeAppAlignment
+//            }
 
-            appHomeName.layoutParams = layoutParams
-            appHomeName.text = appInfo.appName
-            appHomeName.setTextColor(preferenceHelper.appColor)
-            appHomeName.textSize = preferenceHelper.appTextSize
+//            appHomeName.layoutParams = layoutParams
+            appDrawName.text = appInfo.appName
+            imageApp.setImageDrawable(itemView.context.packageManager.getApplicationIcon(appInfo.packageName))
+            appDrawName.setTextColor(preferenceHelper.appColor)
+//            appHomeName.textSize = preferenceHelper.appTextSize
 
             Log.d("Tag", "Home Adapter Color: ${preferenceHelper.appColor.toString()}")
 
-            appHomeIcon.visibility = View.GONE
+//            appHomeIcon.visibility = View.VISIBLE
         }
 
         itemView.setOnClickListener { onAppClickedListener.onAppClicked(appInfo) }

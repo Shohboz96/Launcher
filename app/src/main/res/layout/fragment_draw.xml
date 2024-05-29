@@ -2,39 +2,50 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/draw_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/draw_background"
     tools:context=".ui.drawer.DrawFragment">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginVertical="32dp"
-        android:layout_marginHorizontal="20dp">
+        android:orientation="vertical">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/searchViewContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginVertical="16dp"
             android:clickable="true"
-            android:focusable="true">
+            android:focusable="true"
+            android:orientation="horizontal">
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/search_view1"
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:hint="search"
-                android:textSize="@dimen/text_super_large"
-                android:textStyle="normal"
-                android:background="@android:color/transparent"
-                android:inputType="text"
-                style="@style/TextDefaultStyle">
+                app:cardBackgroundColor="@color/whiteTrans25"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp">
 
-            </androidx.appcompat.widget.AppCompatEditText>
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/search_view1"
+                    style="@style/TextDefaultStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:paddingStart="16dp"
+                    android:background="@color/whiteTrans10"
+                    android:hint="Search"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/whiteTrans50"
+                    android:inputType="text"
+                    android:textSize="@dimen/text_large"
+                    android:textStyle="normal">
+
+                </androidx.appcompat.widget.AppCompatEditText>
+            </com.google.android.material.card.MaterialCardView>
+
 
             <!--androidx.appcompat.widget.SearchView
                 android:id="@+id/searchView"
@@ -44,23 +55,22 @@
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/drawAdapter"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/drawAdapter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/draw_search_button"
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.FloatingActionButton"
+        android:layout_margin="32dp"
         android:clickable="true"
-        app:backgroundTint="@color/search_button_background"
         android:src="?android:attr/actionModeWebSearchDrawable"
+        app:backgroundTint="@color/search_button_background"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="32dp" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
